@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Sinh Viên</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #c9d6ff;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #e2e2e2, #c9d6ff);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff); 
+            margin: 0;
+            overflow: hidden;
+        }
+        .card {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+        .card:before, .card:after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 60%);
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+        .card:before {
+            z-index: 1;
+        }
+        .card:hover:before, .card:hover:after {
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 1;
+        }
+        .card h2 {
+            margin: 0 0 15px;
+            font-size: 26px;
+            position: relative;
+            z-index: 2;
+        }
+        .card p {
+            margin: 10px 0;
+            font-size: 18px;
+            position: relative;
+            z-index: 2;
+        }
+        .card .icon {
+            margin-top: 15px;
+            font-size: 28px;
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="card" id="infoCard">
+    <!-- Thông tin sẽ được JavaScript điền vào đây -->
+</div>
+
+<script>
+    // Thông tin người
+    const person = {
+        name: 'Nguyễn Minh Phi',
+        studentId: '2274802010649',
+        class: '233_71ITSE41003_060'
+    };
+
+    // Lấy phần tử card
+    const card = document.getElementById('infoCard');
+
+    // Tạo nội dung cho card
+    const cardContent = `
+        <h2>${person.name}</h2>
+        <p>Mã số sinh viên: ${person.studentId}</p>
+        <p>Lớp: ${person.class}</p>
+        <div class="icon">
+            <i class="fas fa-user-graduate"></i>
+        </div>
+    `;
+
+    // Gán nội dung vào card
+    card.innerHTML = cardContent;
+</script>
+
+</body>
+</html>
